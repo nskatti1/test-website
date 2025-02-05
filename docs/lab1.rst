@@ -113,18 +113,6 @@ This section covers **Bluetooth communication tasks**.
 - **Advantages and disadvantages:** Discuss scenarios where each method might be preferable.
 - **Storage:** Calculate how much data the Artemis board can store (RAM: 384 kB).
 
-Additional Tasks (5000-level students only)
-===========================================
-
-### Communication Performance Analysis
-
-- **Data rate analysis:** Provide your findings with short vs. large packet sizes.
-- **Reliability:** Discuss what happens when sending data at higher rates.
-- **Plot:** Include at least one plot to support your analysis.
-
-.. image:: <path/to/your/plot.png>
-    :alt: Data rate analysis plot
-    :width: 600px
 
 Discussion
 ==========
