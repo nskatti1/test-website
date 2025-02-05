@@ -22,5 +22,6 @@ I am studying Electrical and Computer Engineering(ECE). A couple fun facts about
    :maxdepth: 2
    :caption: Contents:
 
+   index.rst
    lab1.rst
 
