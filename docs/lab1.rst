@@ -1,19 +1,13 @@
 ====================================
-Lab 1: The Artemis Board and Bluetooth
+Lab 1 Write-Up: The Artemis Board and Bluetooth
 ====================================
-
-:Author: Nita Kattimani
-:Course: Fast Robots ECE 4160
-:Date: 02/05/2025
-:Lab Number: 1
-:Lab Title: The Artemis Board and Bluetooth
 
 .. contents::
     :depth: 2
     :local:
 
-1. Prelab
-----------
+Prelab
+======
 
 ### Setup
 
@@ -38,8 +32,10 @@ Explain your understanding of the provided codebase. Focus on the role of BLE, k
 - **Classes:** `BLECStringCharacteristic`, `RobotCommand`
 - **Bluetooth overview:** Provide a summary of how communication is established between the Artemis and the computer.
 
-2. Lab Tasks
-------------
+Lab Tasks: Part 1A
+==================
+
+This section focuses on tasks related to **setting up and programming the Artemis board**.
 
 ### Configurations
 
@@ -100,6 +96,11 @@ Explain how you measured the data transfer rate using the notification handler.
 
 - **Effective data rate:** (Provide your calculations and a brief discussion.)
 
+Lab Tasks: Part 1B
+==================
+
+This section covers **Bluetooth communication tasks**.
+
 ### Array Storage and Temperature Readings
 
 - **Array setup:** Describe how you stored time stamps and temperature readings.
@@ -112,24 +113,37 @@ Explain how you measured the data transfer rate using the notification handler.
 - **Advantages and disadvantages:** Discuss scenarios where each method might be preferable.
 - **Storage:** Calculate how much data the Artemis board can store (RAM: 384 kB).
 
-4. Discussion
--------------
+Additional Tasks (5000-level students only)
+===========================================
+
+### Communication Performance Analysis
+
+- **Data rate analysis:** Provide your findings with short vs. large packet sizes.
+- **Reliability:** Discuss what happens when sending data at higher rates.
+- **Plot:** Include at least one plot to support your analysis.
+
+.. image:: <path/to/your/plot.png>
+    :alt: Data rate analysis plot
+    :width: 600px
+
+Discussion
+==========
 
 - **What you learned:** Summarize key takeaways from the lab.
 - **Challenges:** Explain any issues you faced and how you solved them.
 - **Unique solutions:** Describe any novel approaches you used.
 
-5. Conclusion
--------------
+Conclusion
+==========
 
 Provide a brief conclusion that summarizes your overall experience with Lab 1.
 
-6. References (if applicable)
------------------------------
+References (if applicable)
+==========================
 
 List any external references, tutorials, or documentation that you used.
 
 Appendix (Optional)
--------------------
+===================
 
 - Include any additional information, such as large code snippets, logs, or extended results.
