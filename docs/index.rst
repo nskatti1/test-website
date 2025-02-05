@@ -8,7 +8,7 @@ Fast Robots documentation
 
 
 .. image:: images/Nita_headshot.jpg
-   :width: 600
+   :width: 350
 
 Hi, My name is Nita Kattimani, and this is the webpage for all my work from Fast Robots (ECE 4160)
 
