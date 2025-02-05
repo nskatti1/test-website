@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Fast Robots'
+project = 'Fast Robots ECE 4160'
 copyright = '2025, Nita Kattimani'
 author = 'Nita Kattimani'
 
