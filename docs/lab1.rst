@@ -156,44 +156,163 @@ Prelab: Codebase Setup
 .. image:: <path/to/uuid-generation-image>
     :alt: UUID generation in Jupyter Notebook
 
-Lab Tasks: Bluetooth Communication
+Part B
 -----------------------------------
+
+This part tests **Bluetooth communication** between the Artemis board and the computer.
 
 ### Task 1: ECHO Command
 
-Sent a string value to the Artemis board and received an augmented string back.
+The first task involved sending a string from the computer to the Artemis board using the `ECHO` command. The Artemis board receives the string, augments it, and sends it back.
+
+**Code for the ECHO command:**
+
+.. code-block:: c++
+
+    case ECHO:
+        char char_arr[MAX_MSG_SIZE];
+        if (robot_cmd.get_next_value(char_arr)) {
+            tx_estring_value.clear();
+            tx_estring_value.append(char_arr);
+            tx_characteristic_string.writeValue(tx_estring_value.c_str());
+            Serial.print("Robot says -> ");
+            Serial.println(tx_estring_value.c_str());
+        }
+        break;
+
+Example response in the serial monitor:  
+`Robot says -> HiHello :)`
 
 ---
 
-### Task 2: GET_TIME_MILLIS Command
+### Task 2: SEND_THREE_FLOATS Command
 
-Added a command to return the current time string from the Artemis board.
+The second task required sending three float values from the computer to the Artemis board. The board extracts these floats and prints them.
+
+**Code for extracting and printing three floats:**
+
+.. code-block:: c++
+
+    case SEND_THREE_FLOATS:
+        float float_a, float_b, float_c;
+        if (robot_cmd.get_next_value(float_a) &&
+            robot_cmd.get_next_value(float_b) &&
+            robot_cmd.get_next_value(float_c)) {
+            Serial.print("Three Floats: ");
+            Serial.print(float_a);
+            Serial.print(", ");
+            Serial.print(float_b);
+            Serial.print(", ");
+            Serial.println(float_c);
+        }
+        break;
 
 ---
 
-### Task 3: Notification Handler
+### Task 3: GET_TIME_MILLIS Command
 
-Created a Python handler to process string notifications from the Artemis board.
+The `GET_TIME_MILLIS` command makes the Artemis board reply with the current time in milliseconds as a string.
+
+**Code for GET_TIME_MILLIS:**
+
+.. code-block:: c++
+
+    case GET_TIME_MILLIS:
+        tx_estring_value.clear();
+        tx_estring_value.append("Time: ");
+        tx_estring_value.append((double)millis());
+        tx_characteristic_string.writeValue(tx_estring_value.c_str());
+        Serial.println(tx_estring_value.c_str());
+        break;
+
+Example output: `Time: 123456`
 
 ---
 
-### Task 4: Current Time Loop
+### Task 4: Time Data Loop (GET_TIME_MILLIS_LOOP)
 
-Implemented a loop to send timestamps to the computer. Measured data transfer rate.
+In this task, the Artemis board sends the current time repeatedly in a loop for a few seconds. This helps determine the data transfer rate.
+
+**Code for looping time data:**
+
+.. code-block:: c++
+
+    case GET_TIME_MILLIS_LOOP:
+        double t = (double) millis();
+        while ((double)millis() - t < 1000) {
+            tx_estring_value.clear();
+            tx_estring_value.append("Time: ");
+            tx_estring_value.append((double)millis());
+            tx_characteristic_string.writeValue(tx_estring_value.c_str());
+        }
+        break;
 
 ---
 
 ### Task 5: SEND_TIME_DATA Command
 
-Stored timestamps in an array and sent them as a batch. Measured data transfer rate.
+In this task, the board stores timestamps in an array and sends the array to the computer. The array is defined globally so it can be accessed across functions.
+
+**Code for storing and sending time data:**
+
+.. code-block:: c++
+
+    case SEND_TIME_DATA:
+        float time_array[20];
+        for (int i = 0; i < 20; i++) {
+            time_array[i] = (float)millis();
+        }
+        for (int i = 0; i < 20; i++) {
+            tx_estring_value.clear();
+            tx_estring_value.append("Time: ");
+            tx_estring_value.append(time_array[i]);
+            tx_characteristic_string.writeValue(tx_estring_value.c_str());
+        }
+        break;
 
 ---
 
 ### Task 6: GET_TEMP_READINGS Command
 
-Added a second array for temperature readings. Synchronized time and temperature data.
+The final task added a second array to store temperature readings alongside timestamps. The board sends both arrays, and each timestamp corresponds to a temperature reading.
+
+**Code for GET_TEMP_READINGS:**
+
+.. code-block:: c++
+
+    case GET_TEMP_READINGS:
+        float time_array[20], temp_array[20];
+        for (int i = 0; i < 20; i++) {
+            time_array[i] = (float)millis();
+            temp_array[i] = getTempDegF();  // Example function to get temperature
+        }
+        for (int i = 0; i < 20; i++) {
+            tx_estring_value.clear();
+            tx_estring_value.append("Time: ");
+            tx_estring_value.append(time_array[i]);
+            tx_estring_value.append("s Temp: ");
+            tx_estring_value.append(temp_array[i]);
+            tx_estring_value.append(" degrees");
+            tx_characteristic_string.writeValue(tx_estring_value.c_str());
+        }
+        break;
+
+**Note:** The `getTempDegF()` function retrieves the current temperature reading from the Artemis board.
 
 ---
+
+### Task 7: Discussion on Data Methods
+
+The method used in Task 4 sends data individually, while Task 5 sends data in arrays. The array-based method has a higher data transfer rate but uses more memory on the Artemis board.
+
+- **Advantages of Task 4:**  
+  - Lower memory usage on the Artemis board.
+  
+- **Advantages of Task 5:**  
+  - Faster data transfer rates.
+
+The Artemis board has 384 kB of RAM. Calculations should be done to determine how much data can be stored based on sampling frequency and data size.
+
 
 ### Task 7: Discussion for Tasks 4 and 5
 
