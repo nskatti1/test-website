@@ -1,9 +1,9 @@
-.. Fast Robots documentation master file, created by
+.. Fast Robots ECE 4160 master file, created by
    sphinx-quickstart on Sat Feb  1 16:36:09 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Fast Robots documentation
+Fast Robots ECE 4160
 =========================
 
 
