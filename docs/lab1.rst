@@ -139,13 +139,10 @@ insert image
 3. Get Time Millis
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The GET_TIME_MILLIS command returns the current time in the format T:123456, obtained using the millis() function.
+The GET_TIME_MILLIS command returns the current time in the format T:123456, obtained using the millis() function. 
 
 .. code-block:: c++
-:caption: Case Statement for GET_TIME_MILLIS and GET_TIME_MILLIS_LOOP
-
-.. code-block:: c++
-   :caption: Case Statement for ``GET_TIME_MILLIS`` and ``GET_TIME_MILLIS_LOOP``
+   :caption: Case Statement for ``GET_TIME_MILLIS`` 
 
         case GET_TIME_MILLIS:
         /*
@@ -159,17 +156,6 @@ The GET_TIME_MILLIS command returns the current time in the format T:123456, obt
             time_val = tx_estring_value.c_str();
             tx_characteristic_string.writeValue(time_val);
             Serial.println(time_val);
-            break;
-
-  case GET_TIME_MILLIS_LOOP:
-            double t;
-            t = (double) millis();
-            while ((double)millis() - t < 1000) {
-                tx_estring_value.clear();
-                tx_estring_value.append("Time: ");
-                tx_estring_value.append((double)millis());
-                tx_characteristic_string.writeValue(tx_estring_value.c_str());
-             }
             break;
 
 insert image
@@ -201,25 +187,11 @@ ble.send_command(CMD.GET_TIME_MILLIS, "")
 5. Time Notification Loop
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-I wrote GET_TIME_MILLIS to record time stamps. And then wrote another command GET_TIME_MILLIS_LOOP as well.
+THE GET_TIME_MILLIS_LOOP loops 
 This can be used to measure differences in time.
 
 .. code-block:: c++
 
-        case GET_TIME_MILLIS:
-        /*
-          gets time
-        */
-            const char* time_val; 
-
-            tx_estring_value.clear();
-            tx_estring_value.append("Time: ");
-            tx_estring_value.append((double)millis());
-            time_val = tx_estring_value.c_str();
-            tx_characteristic_string.writeValue(time_val);
-            Serial.println(time_val);
-            break;
-          
   case GET_TIME_MILLIS_LOOP:
             double t;
             t = (double) millis();
@@ -258,8 +230,6 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
               }
             break;
 
- 
-
  insert image
 
 
@@ -272,26 +242,7 @@ I wrote GET_TEMP_READINGS that records both time and temperature and can be easi
    :caption: Case Statements for ``GET_TEMP_READINGS`` 
 
    case GET_TEMP_READINGS:
-          float time_array1[20];
-                  for (int i = 0; i < 20; i++) {
-                        time_array1[i] = (float)millis();
-                    }
-            float temp_array[20];
-            for (int i=0; i<20; i++){
-                #ifdef ADCPIN
-                  int external = analogRead(EXTERNAL_ADC_PIN); 
-                  analogWrite(LED_BUILTIN, external);
-                #endif
-
-                  int vcc_3 = analogReadVCCDiv3();    
-                  int vss = analogReadVSS();          
-                  int temp_raw = analogReadTemp();    
-                  
-                  float temp_f = getTempDegF();       
-                  float vcc_v = getVCCV();            
-
-                  temp_array[i] = temp_f;
-            }
+              //setup code has been redacted for purposes of not posting unncessary code
             for (int i = 0; i < 20; i++) {
                   tx_estring_value.clear();
                   tx_estring_value.append("Time: ");
