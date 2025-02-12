@@ -297,6 +297,6 @@ I struggled with getting set up only to realize that my bluetooth was not on.
 Acknowledgements
 --------------------------------------------------------------------------
 
-Thanks to all the staff and the professor for helping in lab. I referenced Mikayla Lahr, Nidhi Sonwalkar, Kofi Ohene Adu, Minh Nguyen, and Daria Kot. 
+Thanks to all the staff and the professor for helping in lab. I referenced the webpages of past students: Mikayla Lahr, Nidhi Sonwalkar, Kofi Ohene Adu, Minh Nguyen, and Daria Kot. 
 I also had ChatGPT proof read this webpage and shorten my writing in areas where I was too wordy.
 Shout out to Aidan McNay for sitting with me and teaching me about Sphinx and helping me build a test repo for this class(before I publish to this actual page)
