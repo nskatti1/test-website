@@ -26,7 +26,10 @@ Serial
 
 After verifying basic programming functionality, I used the "Serial" example to test data communication between the board and a serial monitor, ensuring that input data was correctly echoed back.
 
-insert video
+.. image:: images/IMG_20250212_072507066.jpg
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
 
 Temperature & Microphone
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
