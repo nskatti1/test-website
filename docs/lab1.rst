@@ -222,7 +222,7 @@ This can be used to measure differences in time.
    :width: 50%
    :class: bottompadding image-border
 
-The photo above shows the commands get_time_millis_and_loop_png being executed.
+The photo above shows the commands GET_TIME_MILLIS_LOOP being executed.
 
 6. SEND_TIME_DATA
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -253,7 +253,7 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
    :width: 50%
    :class: bottompadding image-border
 
-The photo above shows the send time data command in action
+The photo above shows the SEND_TIME_DATA command in action
 
 
 7. GET_TEMP_READINGS
