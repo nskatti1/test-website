@@ -1,12 +1,15 @@
 ====================================
 Lab 1: The Artemis Board and Bluetooth
 ====================================
-
-In this lab, we explored the SparkFun RedBoard Artemis Nano, focusing on its integration with the Arduino IDE and Bluetooth Low Energy (BLE) communication.
-
+ 
 .. contents::
     :depth: 2
     :local:
+
+
+Overview
+--------------------------------------------------------------------------
+In this lab, we explored the SparkFun RedBoard Artemis Nano, focusing on its integration with the Arduino IDE and Bluetooth Low Energy (BLE) communication.
 
 Lab 1A
 --------------------------------------------------------------------------
