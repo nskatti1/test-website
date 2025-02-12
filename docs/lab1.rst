@@ -312,32 +312,7 @@ insert
 
 8. 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-I have two methods to collect and store data: incrementally using 
-GET_TIME_MILLIS or in batches with the note and send data commands. Each
- approach has its own advantages and disadvantages:
-
-
-Latency
-* Using GET_TIME_MILLIS introduces significant delays between 
-readings due to BLE communication. In contrast, recording data in batches
- runs in a loop on the Artemis, bypassing BLE latency and allowing for
- much faster iterations.
-
-Feedback
-* With GET_TIME_MILLIS, I receive immediate feedback from sensors, 
-which can be useful for debugging. On the other hand, recording data in
- batches and sending it later introduces a delay between the initial
- request and data reception.
-
-Storage
-* GET_TIME_MILLIS requires minimal, temporary storage to collect 
-and send data immediately. However, batch storage necessitates storing all
- data first, which demands significantly more memory. The approximate 
-upper limit is 384kB of RAM; if I store only time (4B per reading), I can 
-record up to 98,304 readings. Storing both time and temperature cuts this 
-to 49,152 readings. If storage becomes a limitation, I may need to repeat 
-batch recordings by overwriting previous data or reduce the sampling 
-frequency to extend the data collection period.
+I have two methods to collect and store data: incrementally using GET_TIME_MILLIS or in batches with the note and send data commands. Each approach has its own advantages and disadvantages. Using GET_TIME_MILLIS introduces significant delays between readings due to BLE communication, whereas recording data in batches runs in a loop on the Artemis, bypassing BLE latency and allowing for much faster iterations. With GET_TIME_MILLIS, I receive immediate feedback from sensors, which can be useful for debugging, while recording data in batches and sending it later introduces a delay between the initial request and data reception. In terms of storage, GET_TIME_MILLIS requires minimal, temporary storage to collect and send data immediately, but batch storage necessitates storing all data first, demanding significantly more memory. The approximate upper limit is 384kB of RAM; if I store only time (4B per reading), I can record up to 98,304 readings, while storing both time and temperature cuts this to 49,152 readings. If storage becomes a limitation, I may need to repeat batch recordings by overwriting previous data or reduce the sampling frequency to extend the data collection period.
 
 
 
