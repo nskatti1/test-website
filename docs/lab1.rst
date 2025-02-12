@@ -168,21 +168,20 @@ steps 6 and 7 to be a little more simpler.
 
 .. code-block:: python
    :caption: Notification handler to record the time response
-  
-  incoming_val= [] 
-  array_storage = []
-  
-  def notification_handler(uuid, byte_array): 
-      global incoming_val, array_storage
-      incoming_val.append(ble.bytearray_to_string(byte_array)[:])
-      data = ble.bytearray_to_string(byte_array)
-      array_storage.append(data)
-      print(data)
-
-ble.start_notify(ble.uuid['RX_STRING'], notification_handler)
-
-# Send GET_TIME_MILLIS Command
-ble.send_command(CMD.GET_TIME_MILLIS, "")
+          incoming_val= [] 
+          array_storage = []
+          
+          def notification_handler(uuid, byte_array): 
+              global incoming_val, array_storage
+              incoming_val.append(ble.bytearray_to_string(byte_array)[:])
+              data = ble.bytearray_to_string(byte_array)
+              array_storage.append(data)
+              print(data)
+        
+         ble.start_notify(ble.uuid['RX_STRING'], notification_handler)
+         
+         # Send GET_TIME_MILLIS Command
+         ble.send_command(CMD.GET_TIME_MILLIS, "")
 
 5. GET_TIME_MILLIS_LOOP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -214,21 +213,21 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
 
 .. code-block:: c++
    :caption: Case Statements for  ``SEND_TIME_DATA``
+      case SEND_TIME_DATA:
+                float time_array[20];
+                for (int i = 0; i < 20; i++) {
+                      time_array[i] = (float)millis();
+                  }
+    
+                for (int i = 0; i < 20; i++) {
+                      tx_estring_value.clear();
+                      tx_estring_value.append("Time: ");
+                      tx_estring_value.append(time_array[i]);
+                      tx_estring_value.append("s");
+                      tx_characteristic_string.writeValue(tx_estring_value.c_str());
+                  }
+                break;
 
-  case SEND_TIME_DATA:
-            float time_array[20];
-            for (int i = 0; i < 20; i++) {
-                  time_array[i] = (float)millis();
-              }
-
-            for (int i = 0; i < 20; i++) {
-                  tx_estring_value.clear();
-                  tx_estring_value.append("Time: ");
-                  tx_estring_value.append(time_array[i]);
-                  tx_estring_value.append("s");
-                  tx_characteristic_string.writeValue(tx_estring_value.c_str());
-              }
-            break;
 
  insert image
 
