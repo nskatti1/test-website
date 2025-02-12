@@ -67,9 +67,6 @@ Additionally, I generated a UUID for the Bluetooth service using Python:
   uuid4()
 
 After updating both connections.yaml and ble_arduino.ino, I was able to establish a BLE connection using helper functions provided by the course libraries.
-
-insert image
-
 I had a lot of issues in this part and had to double check my python installations. Then I realized my bluetooth was not on :/. That solved my issues. 
 
 Lab Tasks
@@ -103,7 +100,7 @@ The ECHO command receives a string from Python, modifies it, and returns the alt
             Serial.println(val);
             break;
 
-insert image
+See image below in section 2
 
 2. Send Three Floats
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -168,7 +165,7 @@ The GET_TIME_MILLIS command returns the current time in the format T:123456, obt
             Serial.println(time_val);
             break;
 
-insert image
+See image below in section 5
 
 4. Notification Handler
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
