@@ -285,7 +285,7 @@ While I never figured out exactly what it was, I simplified it and redid it to p
    :width: 50%
    :class: bottompadding image-border
 
-The photo above shows the gettemp command in action
+The photo above shows the GET_TEMP_READINGS command in action
 
 8. LAB QUESTION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
