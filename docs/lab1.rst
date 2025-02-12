@@ -293,7 +293,7 @@ Reflection
 Communication is crucial in order to figure out what is happening. This lab seemed to be focused on getting settled with the board and establishing communication with it.
 I struggled with getting set up only to realize that my bluetooth was not on.  It also took me embarassingly long to realize that I did not update my commands properly. 
 
-.. image:: images/commandupdate.png
+.. image:: images/commandupdates.png
    :align: center
    :width: 50%
    :class: bottompadding image-border
