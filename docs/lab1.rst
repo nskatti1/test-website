@@ -46,6 +46,7 @@ In this section, I focused on establishing Bluetooth Low Energy (BLE) communicat
 I interfaced with it using Python via the bleak module, which required setting up a virtual environment and installing the necessary packages:
 
 .. code-block:: bash
+
    python3 -m venv FastRobots_ble
    .\FastRobots_ble\Scripts\activate
    pip install numpy pyyaml colorama nest_asyncio bleak jupyterlab
@@ -58,6 +59,7 @@ insert image
 Additionally, I generated a UUID for the Bluetooth service using Python:
 
 .. code-block:: python
+
   from uuid import uuid4
   uuid4()
 
@@ -134,7 +136,12 @@ The code I wrote was based on and partially copied from the example command SEND
             
             break;
 
-insert image
+.. image:: images/echo and 3 val together.png
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
+
+The photo above shows the inputs from the python side sending the commands. 
 
 3. Get Time Millis
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -204,7 +211,12 @@ This can be used to measure differences in time.
 
 
 
-insert image
+.. image:: images/get_time_millis_and_loop.png
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
+
+The photo above shows the commands get_time_millis_and_loop_png being executed.
 
 6. SEND_TIME_DATA
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -213,6 +225,7 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
 
 .. code-block:: c++
    :caption: Case Statements for  ``SEND_TIME_DATA``
+
       case SEND_TIME_DATA:
                 float time_array[20];
                 for (int i = 0; i < 20; i++) {
@@ -229,7 +242,12 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
                 break;
 
 
- insert image
+.. image:: images/send time data.png
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
+
+The photo above shows the send time data command in action
 
 
 7. GET_TEMP_READINGS
@@ -256,7 +274,12 @@ I wrote GET_TEMP_READINGS that records both time and temperature and can be easi
 My notification handler broke when I added SEND_TEMP_DATA and GET_TEMP_READINGS, so I went back to reevaluate it as it was repeating weirdly. 
 While I never figured out exactly what it was, I simplified it and redid it to print general statements.
 
-insert 
+.. image:: images/get temp.png
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
+
+The photo above shows the  get temp command in action
 
 8. LAB QUESTION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
