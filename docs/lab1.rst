@@ -75,7 +75,7 @@ Lab Tasks
 1. Echo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The ECHO command receives a string from Python, modifies it, and returns the altered string. The modified string is also printed via serial output and is kind of like an "echo".
+The ECHO command receives a string from Python, modifies it, and returns the altered string. The modified string is also printed via serial output and is kind of like an "echo". 
 
 .. code-block:: c++
    :caption: Case Statement for ``ECHO``
@@ -106,6 +106,7 @@ insert image
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 The SEND_THREE_FLOATS command functions similarly to ECHO, but it processes three float arguments instead of a single string. 
+The code I wrote was based on and partially copied from the example command SEND_TWO_INTS
 
 .. code-block:: c++
    :caption: Case Statement for ``SEND_THREE_FLOATS``
@@ -236,9 +237,6 @@ This can be used to measure differences in time.
 
 insert image
 
-
-Data Rate: :math:`\frac{100 \text{ entries} \cdot \frac{4B}{\text{entry}}}{3.034 s} = 131.84\frac{B}{s}`
-
 6. Send Times in Batch
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -266,8 +264,6 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
 
  insert image
 
-
-Data Rate: :math:`\frac{300 \text{ entries} \cdot \frac{4B}{\text{entry}}}{0.005 s} = 240000\frac{B}{s}`
 
 7. Send Temperature in Batch
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -314,8 +310,6 @@ While I never figured out exactly what it was, I simplified it and redid it to p
 
 insert 
 
-Data Rate: :math:`\frac{300 \text{ entries} \cdot \frac{8B}{\text{entry}}}{0.096 s} = 25000\frac{B}{s}`
-
 8. 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 I have two methods to collect and store data: incrementally using 
@@ -323,17 +317,20 @@ GET_TIME_MILLIS or in batches with the note and send data commands. Each
  approach has its own advantages and disadvantages:
 
 
-* Latency: Using GET_TIME_MILLIS introduces significant delays between 
+Latency
+* Using GET_TIME_MILLIS introduces significant delays between 
 readings due to BLE communication. In contrast, recording data in batches
  runs in a loop on the Artemis, bypassing BLE latency and allowing for
  much faster iterations.
 
-* Feedback: With GET_TIME_MILLIS, I receive immediate feedback from sensors, 
+Feedback
+* With GET_TIME_MILLIS, I receive immediate feedback from sensors, 
 which can be useful for debugging. On the other hand, recording data in
  batches and sending it later introduces a delay between the initial
  request and data reception.
 
-* Storage: GET_TIME_MILLIS requires minimal, temporary storage to collect 
+Storage
+* GET_TIME_MILLIS requires minimal, temporary storage to collect 
 and send data immediately. However, batch storage necessitates storing all
  data first, which demands significantly more memory. The approximate 
 upper limit is 384kB of RAM; if I store only time (4B per reading), I can 
