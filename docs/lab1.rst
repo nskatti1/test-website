@@ -142,6 +142,12 @@ The code I wrote was based on and partially copied from the example command SEND
    :class: bottompadding image-border
 
 The photo above shows the inputs from the python side sending the commands. 
+The photo below shows the serial monitor showing that it received the commands. 
+
+.. image:: images/send3echo.png
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
 
 3. Get Time Millis
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
