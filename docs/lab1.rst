@@ -184,7 +184,7 @@ ble.start_notify(ble.uuid['RX_STRING'], notification_handler)
 # Send GET_TIME_MILLIS Command
 ble.send_command(CMD.GET_TIME_MILLIS, "")
 
-5. Time Notification Loop
+5. GET_TIME_MILLIS_LOOP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 THE GET_TIME_MILLIS_LOOP loops 
@@ -207,7 +207,7 @@ This can be used to measure differences in time.
 
 insert image
 
-6. Send Times in Batch
+6. SEND_TIME_DATA
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 I then wrote a command SEND_TIME_DATA that sent the time data back.
@@ -233,7 +233,7 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
  insert image
 
 
-7. Send Temperature in Batch
+7. GET_TEMP_READINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 I wrote GET_TEMP_READINGS that records both time and temperature and can be easily parsed.
@@ -259,7 +259,7 @@ While I never figured out exactly what it was, I simplified it and redid it to p
 
 insert 
 
-8. 
+8. LAB QUESTION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 I have two methods to collect and store data: incrementally using GET_TIME_MILLIS or in batches with the note and send data commands. Each approach has its own advantages and disadvantages. Using GET_TIME_MILLIS introduces significant delays between readings due to BLE communication, whereas recording data in batches runs in a loop on the Artemis, bypassing BLE latency and allowing for much faster iterations. With GET_TIME_MILLIS, I receive immediate feedback from sensors, which can be useful for debugging, while recording data in batches and sending it later introduces a delay between the initial request and data reception. In terms of storage, GET_TIME_MILLIS requires minimal, temporary storage to collect and send data immediately, but batch storage necessitates storing all data first, demanding significantly more memory. The approximate upper limit is 384kB of RAM; if I store only time (4B per reading), I can record up to 98,304 readings, while storing both time and temperature cuts this to 49,152 readings. If storage becomes a limitation, I may need to repeat batch recordings by overwriting previous data or reduce the sampling frequency to extend the data collection period.
 
