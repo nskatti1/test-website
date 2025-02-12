@@ -46,10 +46,9 @@ In this section, I focused on establishing Bluetooth Low Energy (BLE) communicat
 I interfaced with it using Python via the bleak module, which required setting up a virtual environment and installing the necessary packages:
 
 .. code-block:: bash
-
-python3 -m venv FastRobots_ble
-.\FastRobots_ble\Scripts\activate
-pip install numpy pyyaml colorama nest_asyncio bleak jupyterlab
+   python3 -m venv FastRobots_ble
+   .\FastRobots_ble\Scripts\activate
+   pip install numpy pyyaml colorama nest_asyncio bleak jupyterlab
 
 To enable BLE communication, I first identified the board’s unique MAC Address using the ble_arduino.ino sketch. 
 This MAC Address was then updated in connections.yaml to establish a proper connection.
@@ -59,9 +58,8 @@ insert image
 Additionally, I generated a UUID for the Bluetooth service using Python:
 
 .. code-block:: python
-
-from uuid import uuid4
-uuid4()
+  from uuid import uuid4
+  uuid4()
 
 After updating both connections.yaml and ble_arduino.ino, I was able to establish a BLE connection using helper functions provided by the course libraries.
 
@@ -184,16 +182,16 @@ steps 6 and 7 to be a little more simpler.
 
 .. code-block:: python
    :caption: Notification handler to record the time response
-
-incoming_val= [] 
-array_storage = []
-
-def notification_handler(uuid, byte_array): 
-    global incoming_val, array_storage
-    incoming_val.append(ble.bytearray_to_string(byte_array)[:])
-    data = ble.bytearray_to_string(byte_array)
-    array_storage.append(data)
-    print(data)
+  
+  incoming_val= [] 
+  array_storage = []
+  
+  def notification_handler(uuid, byte_array): 
+      global incoming_val, array_storage
+      incoming_val.append(ble.bytearray_to_string(byte_array)[:])
+      data = ble.bytearray_to_string(byte_array)
+      array_storage.append(data)
+      print(data)
 
 ble.start_notify(ble.uuid['RX_STRING'], notification_handler)
 
