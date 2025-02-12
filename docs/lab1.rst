@@ -54,7 +54,10 @@ I interfaced with it using Python via the bleak module, which required setting u
 To enable BLE communication, I first identified the board’s unique MAC Address using the ble_arduino.ino sketch. 
 This MAC Address was then updated in connections.yaml to establish a proper connection.
 
-insert image
+.. image:: images/connections.png
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
 
 Additionally, I generated a UUID for the Bluetooth service using Python:
 
@@ -136,7 +139,7 @@ The code I wrote was based on and partially copied from the example command SEND
             
             break;
 
-.. image:: images/echo and 3 val together.png
+.. image:: images/echoand3valtogether.png
    :align: center
    :width: 50%
    :class: bottompadding image-border
@@ -242,7 +245,7 @@ I then wrote a command SEND_TIME_DATA that sent the time data back.
                 break;
 
 
-.. image:: images/send time data.png
+.. image:: images/sendtimedata.png
    :align: center
    :width: 50%
    :class: bottompadding image-border
@@ -279,7 +282,7 @@ While I never figured out exactly what it was, I simplified it and redid it to p
    :width: 50%
    :class: bottompadding image-border
 
-The photo above shows the  get temp command in action
+The photo above shows the gettemp command in action
 
 8. LAB QUESTION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,7 +294,12 @@ Reflection
 --------------------------------------------------------------------------
 
 Communication is crucial in order to figure out what is happening. This lab seemed to be focused on getting settled with the board and establishing communication with it.
-I struggled with getting set up only to realize that my bluetooth was not on.  
+I struggled with getting set up only to realize that my bluetooth was not on.  It also took me embarassingly long to realize that I did not update my commands properly. 
+
+.. image:: images/commandupdate.png
+   :align: center
+   :width: 50%
+   :class: bottompadding image-border
 
 
 Acknowledgements
