@@ -19,7 +19,9 @@ Blink
 
 I started with the example "Blink" program to confirm that I could successfully program the board and control the on-board LED.
 
-insert video
+.. youtube:: kqe2E2l-K2k
+   :align: center
+   :width: 70%
 
 Serial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -31,13 +33,23 @@ After verifying basic programming functionality, I used the "Serial" example to 
    :width: 50%
    :class: bottompadding image-border
 
-Temperature & Microphone
+Temperature
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The "Analog Read" example demonstrated that sensor data, specifically from the temperature sensor, could be collected. Additionally, the "Microphone" example showed how I could access and process microphone data for frequency analysis.
+The "Analog Read" example demonstrated that sensor data, specifically from the temperature sensor, could be collected. 
 
-insert video
+.. youtube:: WJK9mvbasgg
+   :align: center
+   :width: 70%
 
+Microphone
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Additionally, the "Microphone" example showed how I could access and process microphone data for frequency analysis.
+
+.. youtube:: 
+   :align: center
+   :width: 70%
 
 Lab 1B
 --------------------------------------------------------------------------
